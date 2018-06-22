@@ -1,16 +1,12 @@
 django
 
-sys
 datetime
-re
+regex
 
 pandas
 numpy
 xlrd
 openpyxl
+python-magic
 
-string
-random
-
-magic
 uuid
