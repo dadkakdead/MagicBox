@@ -1,7 +1,5 @@
 django
 
-
-os
 sys
 datetime
 re
