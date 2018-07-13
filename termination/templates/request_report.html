@@ -1,13 +1,58 @@
 {% extends "base.html" %}
 
-{% block content %}
+{% block customstatic %}
+    <script type="text/javascript" src="/static/js/dropzone.js"></script>
+    <script type="text/javascript" src="/static/js/dzdataform_configuration.js"></script>
+    <link rel="stylesheet" href="/static/css/dzdataform_style.css">
+{% endblock %}
 
-    <form action="" method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        <table>
-            {{ form }}
-        </table>
-        <br>
-        <input type="submit" value="Submit" />
-    </form>
+{% block content %}
+    <div id="description">
+            <span class="largeText">
+                <b>
+                    {{ reportName }}
+                </b>
+            </span>
+            <br>
+            <span class="smallText">
+                last modified on {{ scriptModificationTime }}
+            </span>
+    </div>
+
+    <div id="dashboard">
+        <div id="request">
+                <form id="dzDataForm" action="{{ processorUrl }}" class="dropzone">
+                    <div class="dz-message">
+                        <img src="/static/img/draganddrop.png"/>
+                        <p>
+                            <span class="mediumText"><b>Drop <span id="droppedFilesCounter">2</span> files here</b></span>
+                            <br>
+                            <span class="smallText">or click to select them</span>
+                        </p>
+                    </div>
+
+                    <div class="fallback">
+                        <input name="file" type="file" multiple />
+                    </div>
+
+                    {% csrf_token %}
+                </form>
+        </div>
+
+        <div id="history">
+            <span class="smallText">
+                <b>Recent succesful runs</b>
+                <br>
+                    {% for report in reportsHistory %}
+                        <a href="{{ report.report.url }}">{{ report.modified }}</a><br>
+                    {% endfor %}
+            </span>
+        </div>
+    </div>
+
+    <div id="submission">
+        <div id="dzDataSubmit">
+            <b>GO</b>
+        </div>
+    </div>
 {% endblock %}

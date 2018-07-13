@@ -2,16 +2,15 @@
 <html>
     <head>
         {% load staticfiles %}
-        <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
 
-        {% block customjs %}
+        {% block customstatic %}
         {% endblock %}
 
         <meta charset="utf-8">
-        <title>Request form</title>
+        <title>Report request form</title>
     </head>
     <body>
-        <h2>Termination report, ver. 1.0 (06/21/2018)</h2>
         {% block content %}
         {% endblock %}
     </body>

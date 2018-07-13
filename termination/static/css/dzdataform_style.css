@@ -1,0 +1,137 @@
+div, p, h1, h2, h3 {
+    font-family: Arial;
+}
+
+body {
+    background-color: #D4E1EF
+}
+
+#description {
+    width: 60%;
+    margin: 50px auto 10px auto;
+}
+
+#dashboard {
+    width: 60%;
+    margin: auto;
+}
+
+#request {
+    display:inline-block;
+    width: 75%;
+    margin: 0px 0px;
+}
+
+#history {
+    display:inline-block;
+    vertical-align:top;
+    margin: 0px 10px;
+}
+
+#submission {
+    width:60%;
+    margin: 10px auto;
+}
+
+#dzDataSubmit {
+    height: 60px;
+    width:75%;
+    border-radius: 5px;
+    border: 2px solid lightgrey;
+    background-color: lightgrey;
+    line-height: 60px;
+    color: white;
+    text-align: center;
+}
+
+#dzDataSubmit.fullForm {
+    background: #73C09D;
+}
+
+#dzDataForm.hover {
+    background: #C9FFE7;
+}
+
+#downloadContainer {
+    height: 400px;
+    width:100%;
+
+    display: table;
+    border: 2px solid lightgrey;
+    background: white;
+}
+
+#download {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+#download > img {
+    width: 140px;
+    height: auto;
+}
+
+.dropzone {
+    height: 400px;
+    width:100%;
+    display: table;
+    border: 2px solid lightgrey;
+    background: white;
+}
+
+.dz-message {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.dz-message > img {
+    width: 80px;
+    height: auto;
+}
+
+.dropzone.dz-started .dz-message {
+    display: none;
+}
+
+.dz-preview.dz-file-preview {
+    width: 80%;
+    padding: 20px 20px;
+}
+
+.dz-details {
+    display: table;
+}
+
+img[data-dz-thumbnail] {
+    width: 40px;
+    height: auto;
+}
+
+.dz-filename, .dz-size, .dz-remove-container {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 0px 0px 0px 20px;
+}
+
+a.dz-remove {
+    display: table-cell;
+}
+
+.dz-size, .dz-progress, .dz-success-mark, .dz-error-mark, .dz-error-message {
+    display: table-cell;
+    visibility: hidden;
+}
+
+.largeText {
+    font-size: 36px;
+}
+
+.mediumText {
+    font-size: 24px;
+}
+
+.smallText {
+    font-size: 14px;
+}

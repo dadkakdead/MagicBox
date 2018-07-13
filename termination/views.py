@@ -1,40 +1,33 @@
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse
 from django.shortcuts import render
-from .models import TerminationReportRequest, TerminationReportResponse, TerminationReportRequestForm
+from .models import TerminationReportRequest, TerminationReportResponse
 
-from .utils import create_termination_report
+from .termination_script import create_termination_report
 from django.core.files import File
 import os, sys
-from django.template import loader
+import datetime
+from django.contrib.auth.decorators import login_required
 
-from django.conf import settings
-from django.urls import reverse
-from django.shortcuts import redirect
 
-# Create your views here.
 
+@login_required
 def new_report(request):
-    if request.method == 'POST':
-        form = TerminationReportRequestForm(request.POST, request.FILES)
-        if form.is_valid():
-            reportRequest = form.save()
+    allPreviousReports = TerminationReportResponse.objects.all().order_by('-modified')[:5]
+    scriptModificationTime = datetime.datetime.fromtimestamp(os.path.getmtime(os.getcwd() + "/termination/termination_script.py")).strftime('%B %d, %Y')
+    reportName = "Termination report"
+    processorUrl = "/termination/make/"
+    return render(request, 'request_report.html', {'reportsHistory': allPreviousReports, 'reportName': reportName, 'scriptModificationTime' : scriptModificationTime, 'processorUrl': processorUrl})
 
-            reportPath = create_termination_report([reportRequest.document1.path, reportRequest.document2.path])
+@login_required
+def make_report(request):
+    reportRequest = TerminationReportRequest.objects.create(document1=request.FILES.get('file[0]'), document2=request.FILES.get('file[1]'))
+    reportRequest.save()
 
-            reportInstance = TerminationReportResponse(request=reportRequest)
-            reportInstance.report.save(os.path.basename(reportPath), File(open(reportPath, "rb")))
-            reportInstance.save()
-            os.remove(reportPath)
-            request.session['reportUrl'] = reportInstance.report.url
-            return redirect('download_report')
-    else:
-        form = TerminationReportRequestForm()
-    return render(request, 'request_report.html', {'form': form})
+    reportFilePath = create_termination_report([reportRequest.document1.path, reportRequest.document2.path])
 
-def download_report(request):
-    if request.session['reportUrl'] != "":
-        reportUrl = request.session['reportUrl']
-        request.session['reportUrl'] = ""
-        return render(request, 'download_report.html', {'reportUrl': reportUrl})
-    else:
-        return HttpResponse("Empty request. Please start from <a href='/termination/new'>request form</a>")
+    reportResponse = TerminationReportResponse(request=reportRequest)
+    reportResponse.report.save(os.path.basename(reportFilePath), File(open(reportFilePath, "rb")))
+    reportResponse.save()
+    os.remove(reportFilePath)
+    request.session['reportUrl'] = reportResponse.report.url
+    return HttpResponse(reportResponse.report.url)

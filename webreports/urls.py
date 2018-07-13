@@ -20,7 +20,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 ]
 
-# Use include() to add paths from the catalog application
+# Use include() to add paths from the termination application
 from django.conf.urls import include
 from django.urls import path
 urlpatterns += [
@@ -30,8 +30,17 @@ urlpatterns += [
 #Add URL maps to redirect the base URL to our application
 from django.views.generic import RedirectView
 urlpatterns += [
-    path('', RedirectView.as_view(url='/termination')),
-    path('termination/', RedirectView.as_view(url='/termination/new/')),
+    path('', RedirectView.as_view(url='/termination/new/'))
+]
+
+from django.conf.urls import url
+from django.contrib import admin
+from django.contrib.auth import views as auth_views
+
+urlpatterns += [
+    url(r'login/$', auth_views.login, name='login'),
+    url(r'logout/$', auth_views.logout, name='logout'),
+    url(r'admin/', admin.site.urls),
 ]
 
 # Use static() to add url mapping to serve static files during development (only)
