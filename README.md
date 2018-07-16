@@ -1,16 +1,15 @@
 ## Deployment instruction
 
 0. Create account at PythonAnywhere
-1. Follow setup instructions https://help.pythonanywhere.com/pages/DeployExistingDjangoProject/
-2. Copy static files https://help.pythonanywhere.com/pages/DjangoStaticFiles
+1. Execute step by step commands (see below)
+2. Create a new web app, follow setup instructions https://help.pythonanywhere.com/pages/DeployExistingDjangoProject/
 
-## Step-by-step commands
+## Step-by-step commands in PythonAnywhere bash
 
-- git clone https://github.com/devrazdev/webreports.git  
 - mkvirtualenv --python=/usr/bin/python3.6 mysite-virtualenv
 - git clone https://github.com/devrazdev/webreports.git
 - cd webreports/
-- pip install -r requirements
+- pip install -r requirements.txt
 - ./manage.py makemigrations
 - ./manage.py migrate
 - ./manage.py collectstatic

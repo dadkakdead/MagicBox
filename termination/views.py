@@ -1,19 +1,22 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from .models import TerminationReportRequest, TerminationReportResponse
 
-from .termination_script import create_termination_report
 from django.core.files import File
+from django.contrib.auth.decorators import login_required
+from django.conf import settings
+
+from .models import TerminationReportRequest, TerminationReportResponse
+from .scripts.termination_script import create_termination_report
+
 import os, sys
 import datetime
-from django.contrib.auth.decorators import login_required
 
 
 
 @login_required
 def new_report(request):
     allPreviousReports = TerminationReportResponse.objects.all().order_by('-modified')[:5]
-    scriptModificationTime = datetime.datetime.fromtimestamp(os.path.getmtime(os.getcwd() + "/termination/termination_script.py")).strftime('%B %d, %Y')
+    scriptModificationTime = datetime.datetime.fromtimestamp(os.path.getmtime(settings.BASE_DIR + "/termination/scripts/termination_script.py")).strftime('%B %d, %Y')
     reportName = "Termination report"
     processorUrl = "/termination/make/"
     return render(request, 'request_report.html', {'reportsHistory': allPreviousReports, 'reportName': reportName, 'scriptModificationTime' : scriptModificationTime, 'processorUrl': processorUrl})
