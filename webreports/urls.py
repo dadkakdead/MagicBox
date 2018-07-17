@@ -30,7 +30,7 @@ urlpatterns += [
 #Add URL maps to redirect the base URL to our application
 from django.views.generic import RedirectView
 urlpatterns += [
-    path('', RedirectView.as_view(url='/webrequest/termination/new/'))
+    path('', RedirectView.as_view(url='/webrequest/telegram/'))
 ]
 
 from django.conf.urls import url
