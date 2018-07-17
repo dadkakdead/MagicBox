@@ -20,17 +20,17 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 ]
 
-# Use include() to add paths from the termination application
+# Use include() to add paths from the Web Requests application
 from django.conf.urls import include
 from django.urls import path
 urlpatterns += [
-    path('termination/', include('termination.urls')),
+    path('webrequest/', include('webrequest.urls')),
 ]
 
 #Add URL maps to redirect the base URL to our application
 from django.views.generic import RedirectView
 urlpatterns += [
-    path('', RedirectView.as_view(url='/termination/new/'))
+    path('', RedirectView.as_view(url='/webrequest/termination/new/'))
 ]
 
 from django.conf.urls import url

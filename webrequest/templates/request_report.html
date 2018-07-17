@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block customstatic %}
+    <script type="text/javascript" src="/static/js/dropzone.js"></script>
+    <script type="text/javascript">
+            dropzoneMaxFiles = {{ dropzoneMaxFiles }}
+    </script>
+    <script type="text/javascript" src="/static/js/dzdataform_configuration.js"></script>
+
+
+    <link rel="stylesheet" href="/static/css/dzdataform_style.css">
+{% endblock %}
+
+{% block content %}
+    <div id="description">
+            <span class="largeText">
+                <b>
+                    <a href="{{ requestUrl }}">{{ reportName }}</a>
+                </b>
+            </span>
+            <br>
+            <span class="smallText">
+                <i>Description: {{ reportDescription }}</i>
+            </span>
+
+            <br><br>
+            <span class="smallText">
+                Last modified on {{ scriptModificationTime }}
+            </span>
+    </div>
+
+    <div id="dashboard">
+        <div id="request">
+                <form id="dzDataForm" action="{{ processorUrl }}" class="dropzone">
+                    <div class="dz-message">
+                        <img src="/static/img/draganddrop.png"/>
+                        <p>
+                            <span class="mediumText"><b>Drop <span id="droppedFilesCounter"></span> files here</b></span>
+                            <br>
+                            <span class="smallText">or click to select them</span>
+                        </p>
+                    </div>
+
+                    <div class="fallback">
+                        <input name="file" type="file" multiple />
+                    </div>
+
+                    {% csrf_token %}
+                </form>
+        </div>
+
+        <div id="history">
+            <span class="smallText">
+                <b>Recent succesful runs</b>
+                <br>
+                    {% for report in reportsHistory %}
+                        <a href="{{ report.report.url }}">{{ report.modified }}</a><br>
+                    {% endfor %}
+            </span>
+        </div>
+    </div>
+
+    <div id="submission">
+        <div id="dzDataSubmit">
+            <b>GO</b>
+        </div>
+    </div>
+{% endblock %}

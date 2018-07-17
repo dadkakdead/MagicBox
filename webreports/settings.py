@@ -35,7 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'termination.apps.TerminationConfig',
+    'webrequest.apps.WebrequestConfig',
 ]
 
 MIDDLEWARE = [
@@ -53,7 +53,7 @@ ROOT_URLCONF = 'webreports.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['./termination/templates',],
+        'DIRS': ['./webrequest/templates',],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
