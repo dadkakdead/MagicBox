@@ -1,3 +1,6 @@
 .DS_Store
-webreports/documents/requests/
-webreports/documents/responses/
+webreports/documents/requests/*
+!webreports/documents/requests/.gitkeep
+
+webreports/documents/responses/*
+!webreports/documents/responses/.gitkeep
