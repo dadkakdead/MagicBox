@@ -17,7 +17,7 @@ Deploy using PythonAnywhere
 5. (fix the wsgi file)
 6. (reload the web application)
 
-## Update the Application
+## Updating the application
 Assuming you have previously setup the web application using instruction above.
 
 1. (remove the /webreports folder)
