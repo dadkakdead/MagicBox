@@ -6,15 +6,11 @@ Deploy using PythonAnywhere
     - git clone https://github.com/devrazdev/webreports.git
     - mkvirtualenv --python=/usr/bin/python3.6 mysite-virtualenv
     - cd webreports/
-    - pip install -r requirements.txt
-    - ./manage.py makemigrations
-    - ./manage.py migrate
-    - ./manage.py collectstatic
-    - ./manage.py createsuperuser
+    - sh install.sh
     - (enter login/pass/etc.)
-3. (create new web application (Django -> Python 3.6 -> Manual configuration)
-4. (enter the name of virtual environment)
-5. (fix the wsgi file)
+3. (create new web application: *Django* -> *Python 3.6* -> *Manual configuration*)
+4. (enter the name of virtual environment: *mysite-virtualenv*)
+5. (edit the wsgi file: leave Django, uncomment, replace *mysite* to *webreports*)
 6. (reload the web application)
 
 ## Updating the application
@@ -25,10 +21,7 @@ Assuming you have previously setup the web application using instruction above.
     - git clone https://github.com/devrazdev/webreports.git
     - workon mysite-virtualenv    
     - cd webreports/
-    - ./manage.py makemigrations
-    - ./manage.py migrate
-    - ./manage.py collectstatic
-    - ./manage.py createsuperuser
+    - sh update.sh
     - (enter login/pass/etc.)
 3. (reload the web application)
 
