@@ -33,7 +33,7 @@ $(document).ready(function(){
                     $("#dzDataSubmit").removeClass("fullForm");
                 }
             }
-            
+
             myDropzone.on("addedfiles", submitButtonSwitch);
 
             myDropzone.on("removedfile", submitButtonSwitch);
