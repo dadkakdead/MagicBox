@@ -5,6 +5,20 @@ from django.db import migrations, models
 import django.db.models.deletion
 import django.utils.timezone
 
+def create_seed_reports(apps, schema_editor):
+    Report = apps.get_model('webrequest', 'Report')
+
+    r = Report.objects.create(key="termination",
+                                name = "Termination report",
+                                description = "Merge termination reports from 1C and Lanteria",
+                                maxDocuments = 2)
+    r.save()
+
+    r = Report.objects.create(key = "telegram",
+                                name = "Telegram report",
+                                description = "Check correlation between inten.to, tlgrm.ru, tchannels.me and tsear.ch databases",
+                                maxDocuments = 4)
+    r.save()
 
 class Migration(migrations.Migration):
 
@@ -45,4 +59,6 @@ class Migration(migrations.Migration):
                 ('request', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='webrequest.Request')),
             ],
         ),
+
+        migrations.RunPython(create_seed_reports)
     ]
