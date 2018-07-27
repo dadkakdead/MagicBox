@@ -16,9 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-urlpatterns = [
-    path('admin/', admin.site.urls),
-]
+urlpatterns = []
 
 # Use include() to add paths from the Web Requests application
 from django.conf.urls import include
@@ -30,7 +28,7 @@ urlpatterns += [
 #Add URL maps to redirect the base URL to our application
 from django.views.generic import RedirectView
 urlpatterns += [
-    path('', RedirectView.as_view(url='/webrequest/telegram/'))
+    path('', RedirectView.as_view(url='/webrequest/'))
 ]
 
 from django.conf.urls import url

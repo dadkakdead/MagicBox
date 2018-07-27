@@ -54,7 +54,7 @@
                 <b>Recent succesful runs</b>
                 <br>
                     {% for report in reportsHistory %}
-                        <a href="{{ report.report.url }}">{{ report.modified }}</a><br>
+                        <a href="{{ report.responseFile.url }}">{{ report.timeCreated }}</a><br>
                     {% endfor %}
             </span>
         </div>

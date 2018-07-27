@@ -1,18 +1,4 @@
-import os
-from os import listdir
-from os.path import isfile, join
-
-import sys
-
-import datetime
-import pandas as pd
-import numpy as np
-import re
-
-import string
-import random
-
-from .utils import write_report
+from webrequest.scripts.utils import *
 
 #convert dates
 def convert_1c_date(dateValue):
@@ -46,7 +32,7 @@ def convert_1c_template(df, df_output_columns):
                 if pd.isnull(row['Unit manager']):
                     if pd.isnull(row['Department manager']):
                         if pd.isnull(row['SLTmanager']):
-                            print("-")
+                            pass
                         else:
                             df.at[index, 'Manager'] = row['SLTmanager']
                     else:
@@ -61,7 +47,7 @@ def convert_1c_template(df, df_output_columns):
 
     #return the converted template
     df_f = df[['Name eng',
-                'Workbook Title RUS',
+                'JobTitle',
                 'Manager',
                 'Location',
                 'Date of hire',
@@ -101,7 +87,7 @@ def convert_lanteria_template(df, df_output_columns):
     df_f.columns = df_output_columns
     return df_f
 
-def create_termination_report(paths):
+def create_report(pathToZip):
     #template identificator
     df_1C_columns = ['Location',
                             'Организация',
@@ -151,9 +137,14 @@ def create_termination_report(paths):
     #initialize empty output dataframe
     df_f = pd.DataFrame()
 
+    #read the archive with input file to the memory
+    archive = zipfile.ZipFile(pathToZip, 'r')
+    filesInArchive = get_list_of_files(archive)
+
     #convert all the templates
-    for reportPath in paths:
-        df = pd.read_excel(reportPath, sheet_name=0, encoding = 'utf-8', index=False)
+    for i in range(0, len(filesInArchive)):
+        fileName = filesInArchive[i]
+        df = pd.read_excel(io.BytesIO(archive.read(fileName)), sheet_name=0, encoding = 'utf-8', index=False)
 
         # input template has unique combination of columns' titles (signature)
         # to guess the input type we compare input signature to templates' signatures
@@ -173,4 +164,5 @@ def create_termination_report(paths):
         df_f = pd.concat([df_f, df_c]).reset_index(drop=True)
 
     reportPath = write_report(df_f)
+    archive.close()
     return reportPath

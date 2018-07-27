@@ -1,25 +1,23 @@
 from django.contrib import admin
-from .models import TerminationReportRequest, TerminationReportResponse
-from .models import TelegramReportRequest, TelegramReportResponse
+from .models import Report, Request, Response
 
-class TerminationReportRequestAdmin(admin.ModelAdmin):
-    list_display = ('id', 'document1', 'document2', 'modified')
-    readonly_fields = ('created', 'id',)
+class ReportAdmin(admin.ModelAdmin):
+    list_display = ('key', 'name', 'description', 'maxDocuments', 'pathToScript', 'timeCreated', 'timeModified')
 
-class TerminationReportResponseAdmin(admin.ModelAdmin):
-    list_display = ('id', 'request', 'report', 'modified')
-    readonly_fields = ('created', 'id',)
+    def get_readonly_fields(self, request, obj=None):
+        if obj:
+            return ['key', 'pathToScript']
+        else:
+            return []
 
-admin.site.register(TerminationReportRequest, TerminationReportRequestAdmin)
-admin.site.register(TerminationReportResponse, TerminationReportResponseAdmin)
+class RequestAdmin(admin.ModelAdmin):
+    list_display = ('id', 'timeCreated', 'key', 'requestZip')
+    readonly_fields = ('timeCreated', 'id')
 
-class TelegramReportRequestAdmin(admin.ModelAdmin):
-    list_display = ('id', 'document1', 'document2', 'document3', 'document4', 'modified')
-    readonly_fields = ('created', 'id',)
+class ResponseAdmin(admin.ModelAdmin):
+    list_display = ('id',  'timeCreated', 'key', 'request', 'responseFile')
+    readonly_fields = ('timeCreated', 'id')
 
-class TelegramReportResponseAdmin(admin.ModelAdmin):
-    list_display = ('id', 'request', 'report', 'modified')
-    readonly_fields = ('created', 'id',)
-
-admin.site.register(TelegramReportRequest, TelegramReportRequestAdmin)
-admin.site.register(TelegramReportResponse, TelegramReportResponseAdmin)
+admin.site.register(Report, ReportAdmin)
+admin.site.register(Request, RequestAdmin)
+admin.site.register(Response, ResponseAdmin)

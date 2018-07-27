@@ -1,6 +1,8 @@
 .DS_Store
 db.sqlite3
 
+webreports/__pycache__/*
+
 webreports/documents/requests/*
 !webreports/documents/requests/.gitkeep
 

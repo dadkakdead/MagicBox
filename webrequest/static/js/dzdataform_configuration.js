@@ -26,17 +26,17 @@ $(document).ready(function(){
                 }
             });
 
-            myDropzone.on("addedfiles", function(file) {
-               if (myDropzone.getAcceptedFiles().length == dropzoneMaxFiles) {
-                   $("#dzDataSubmit").addClass("fullForm");
-               }
-            });
+            var submitButtonSwitch = function(file) {
+                if (myDropzone.getAcceptedFiles().length == dropzoneMaxFiles) {
+                    $("#dzDataSubmit").addClass("fullForm");
+                } else {
+                    $("#dzDataSubmit").removeClass("fullForm");
+                }
+            }
+            
+            myDropzone.on("addedfiles", submitButtonSwitch);
 
-            myDropzone.on("removedfile", function(file) {
-               if (myDropzone.getAcceptedFiles().length < dropzoneMaxFiles) {
-                   $("#dzDataSubmit").removeClass("fullForm");
-               }
-            });
+            myDropzone.on("removedfile", submitButtonSwitch);
 
             myDropzone.on("successmultiple", function(file, responseText) {
                 $('#downloadContainer').html("<div id=\"download\">\n<img src=\"/static/img/download.png\"/>\n<p>\n<span class=\"mediumText\"><b><a href=\"\">Your report is ready</a></b></span>\n<br>\n<span class=\"smallText\">Download will start shortly</span>\n</p>\n</div>");
@@ -71,12 +71,16 @@ $(document).ready(function(){
           var ext = re.exec(file.name)[1];
           ext = ext.toUpperCase();
 
+          fileNameTrimmed = file.name.substr(0,Math.min(30, file.name.length)) + "..."
+
           if (ext == "XLS" || ext == "XLSX" || ext == "XLSM") {
               file.previewElement.querySelectorAll("[data-dz-thumbnail]")[0].src = "/static/img/excel.png";
+              file.previewElement.querySelectorAll("[data-dz-name]")[0].firstChild.nodeValue = fileNameTrimmed
               done();
           }
           else {
               file.previewElement.querySelectorAll("[data-dz-thumbnail]")[0].src = "/static/img/notexcel.png";
+              file.previewElement.querySelectorAll("[data-dz-name]")[0].firstChild.nodeValue = fileNameTrimmed
               file.previewElement.querySelectorAll(".dz-remove-container")[0].style.visibility = "hidden";
               file.previewElement.querySelectorAll(".dz-filename")[0].style["text-decoration"] = "line-through";
 

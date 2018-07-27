@@ -1,28 +1,36 @@
 import os
+from os import listdir
+from os.path import isfile, join
+
+import sys
+
 import datetime
 import pandas as pd
 import numpy as np
 import re
 
-# for random filenames
 import string
 import random
+
+import zipfile
+import io
 
 #for storing files properly
 from django.conf import settings
 
-def write_report(df_f):
-    #generate the report file name
+def write_report(df):
+    # make random file name
     fileName = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(10)) + ".xlsx"
     filePath = settings.MEDIA_ROOT + fileName
 
-    #write the output to file
+    # write the output to excel
     writer = pd.ExcelWriter(filePath, engine='openpyxl')
-    df_f.to_excel(writer, "output", index=False)
+    df.to_excel(writer, "output", index=False)
 
     workbook  = writer.book
     worksheet = writer.sheets['output']
 
+    # automatically scale the columns
     for columnCells in worksheet.columns:
         length = 0
         for cell in columnCells:
@@ -47,3 +55,12 @@ def write_report(df_f):
 
     writer.save()
     return filePath
+
+# when i archived 2 excel files on Mac, it turned out to be 5 files in the archive
+# this utility function helps count real files in the archive
+def get_list_of_files(zf):
+    fileNames = []
+    for i in range(0,len(zf.infolist())):
+        if not ("__" in zf.infolist()[i].filename):
+            fileNames.append(zf.infolist()[i].filename)
+    return fileNames
