@@ -13,5 +13,6 @@ webrequest/__pycache__/*
 
 webrequest/migrations/*
 !webrequest/migrations/__init__.py
+!webrequest/migrations/0002_seed_reports.py
 
 webrequest/scripts/__pycache__/*
