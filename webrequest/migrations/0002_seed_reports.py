@@ -20,7 +20,7 @@ def create_seed_reports(apps, schema_editor):
 
 class Migration(migrations.Migration):
 
-    dependencies = [
+    run_after = [
         ('webrequest', '0001_initial'),
     ]
 
