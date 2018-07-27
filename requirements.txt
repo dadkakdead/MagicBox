@@ -10,3 +10,6 @@ openpyxl
 python-magic
 
 uuid
+
+ipykernel
+tornado

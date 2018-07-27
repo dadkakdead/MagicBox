@@ -11,7 +11,11 @@ $(document).ready(function(){
         init: function() {
             myDropzone = this;
 
-            $("#droppedFilesCounter").text(dropzoneMaxFiles);
+            if (dropzoneMaxFiles == 1) {
+                $("#droppedFilesCounter").text("Drop 1 file here");
+            } else {
+                $("#droppedFilesCounter").text("Drop " + String(dropzoneMaxFiles) + " files here");
+            }
 
             document.querySelector("#dzDataSubmit").addEventListener("click", function() {
                 if (myDropzone.getAcceptedFiles().length == dropzoneMaxFiles) {

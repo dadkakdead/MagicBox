@@ -25,6 +25,8 @@ Assuming you have previously setup the web application using instruction above.
     - (enter login/pass/etc.)
 3. (reload the web application)
 
+## Using your virtual environment in PythonAnywhere notebooks
+- https://help.pythonanywhere.com/pages/IPythonNotebookVirtualenvs/
 
 ## Links
 - https://help.pythonanywhere.com/pages/DeployExistingDjangoProject/

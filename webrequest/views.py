@@ -27,11 +27,11 @@ def new_report(request, reportKey):
     else:
         if reportMatchCounter == 1:
             # filter out the responses for given key
-            allPreviousReports =  Response.objects.all().order_by('-timeCreated')[:5]
-            somePreviousReports = []
-            for previousReport in allPreviousReports:
-                if previousReport.key == reportKey:
-                    somePreviousReports.append(previousReport)
+            allPreviousResponses =  Response.objects.all().order_by('-timeCreated')
+            responsesPerKey  = []
+            for response in allPreviousResponses:
+                if response.key == reportKey:
+                    responsesPerKey.append(response)
 
             # pass report settings to front-end
             reportName = reportMatched[0].name
@@ -49,7 +49,7 @@ def new_report(request, reportKey):
 
             dropzoneMaxFiles = reportMatched[0].maxDocuments
 
-            return render(request, 'request_report.html', {'reportsHistory': somePreviousReports, 'reportName': reportName, 'reportDescription': reportDescription, 'scriptModificationTime' : scriptModificationTime, 'processorUrl': processorUrl, 'dropzoneMaxFiles': dropzoneMaxFiles})
+            return render(request, 'request_report.html', {'reports': Report.objects.all().order_by('-key'), 'responses': responsesPerKey[:5], 'reportName': reportName, 'reportDescription': reportDescription, 'scriptModificationTime' : scriptModificationTime, 'processorUrl': processorUrl, 'dropzoneMaxFiles': dropzoneMaxFiles})
         else:
             return HttpResponse("There is no report for key ->" + reportKey + "<-. Please check the URL.")
 
