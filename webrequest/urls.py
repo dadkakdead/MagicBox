@@ -3,7 +3,7 @@ from . import views
 from django.views.generic import RedirectView
 
 urlpatterns = [
-    path('', RedirectView.as_view(url='termination/new/')),
+    path('', RedirectView.as_view(url='telegram/new/')),
 
     path('<str:reportKey>/', RedirectView.as_view(url='new/')),
     path('<str:reportKey>/new/', views.new_report, name='new_report'),
