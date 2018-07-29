@@ -1,13 +1,13 @@
 .DS_Store
 db.sqlite3
 
-webreports/__pycache__/*
+ntReport/__pycache__/*
 
-webreports/documents/requests/*
-!webreports/documents/requests/.gitkeep
+ntReport/documents/requests/*
+!ntReport/documents/requests/.gitkeep
 
-webreports/documents/responses/*
-!webreports/documents/responses/.gitkeep
+ntReport/documents/responses/*
+!ntReport/documents/responses/.gitkeep
 
 webrequest/__pycache__/*
 

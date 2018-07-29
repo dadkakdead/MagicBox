@@ -1,20 +1,15 @@
-## Clean installation
-Deploy using PythonAnywhere
-
-1. (create account at PythonAnywhere)
-2. (open bash console and run the following)
-    - git clone https://github.com/devrazdev/webreports.git
+## Installation
+1. [Create free account at PythonAnywhere]
+2. Go to PythonAnywhere dashboard, open new bash console, run the following commands:
+    - git clone https://github.com/devrazdev/ntReport.git
     - mkvirtualenv --python=/usr/bin/python3.6 mysite-virtualenv
-    - cd webreports/
-    - sh install.sh
-    - (enter login/pass/etc.)
-3. (create new web application: *Django* -> *Python 3.6* -> *Manual configuration*)
-4. (enter the name of virtual environment: *mysite-virtualenv*)
-5. (edit the wsgi file: leave Django, uncomment, replace *mysite* to *webreports*)
-6. (reload the web application)
+    - cd ntReport/
+    - sh install.sh (you will be asked to set login/pass for superuser)
+3. [Create new web application]
 
-## Using your virtual environment in PythonAnywhere notebooks
+[Create free account at PythonAnywhere]: <https://www.pythonanywhere.com/registration/register/beginner/>
+[Create new web application]: <https://help.pythonanywhere.com/pages/DeployExistingDjangoProject/>
+
+
+## Configure PythonAnywhere's Notebooks to use the same virtual environment
 - https://help.pythonanywhere.com/pages/IPythonNotebookVirtualenvs/
-
-## Links
-- https://help.pythonanywhere.com/pages/DeployExistingDjangoProject/
