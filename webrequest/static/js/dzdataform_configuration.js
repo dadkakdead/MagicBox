@@ -15,6 +15,7 @@ $(document).ready(function() {
         uploadMultiple: true,
         parallelUploads: (dropzoneMaxFiles == -1) ? 1024 : dropzoneMaxFiles,
         autoProcessQueue: false,
+        timeout: 100000,
         previewTemplate: "<div class=\"dz-preview dz-file-preview\">\n<div class=\"dz-details\">\n<img data-dz-thumbnail />\n<div class=\"dz-filename\"><span data-dz-name></span></div>\n<div class=\"dz-remove-container\"><a class=\"dz-remove\" href=\"javascript:undefined;\" data-dz-remove>Remove</a></div>\n<div class=\"dz-size\" data-dz-size></div>\n</div>\n<div hidden class=\"dz-progress\"><span class=\"dz-upload\" data-dz-uploadprogress></span></div>\n<div class=\"dz-success-mark\"><span></span></div>\n<div class=\"dz-error-mark\"><span></span></div>\n<div class=\"dz-error-message\"><span data-dz-errormessage></span></div></div>",
 
         init: function() {
