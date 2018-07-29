@@ -19,7 +19,7 @@ def create_seed_reports(apps, schema_editor):
                                 name = "Telegram channels",
                                 description = "Show correlation between inten.to, tlgrm.ru, tchannels.me and tsear.ch databases.",
                                 maxDocuments = 4,
-                                allowedExtentions = "",
+                                allowedExtentions = "XLS,XLSX,XLSM",
                                 pathToScript = settings.BASE_DIR + "/webrequest/scripts/telegram_script.py")
     r.save()
 

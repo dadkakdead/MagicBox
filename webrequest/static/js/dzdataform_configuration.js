@@ -58,9 +58,10 @@ $(document).ready(function() {
         },
 
         error: function (file, errorMessage) {
-            console.log(errorMessage);
-            $("div.serverError").css("visibility", "visible");
-            $("div.serverError").text(errorMessage);
+            if (typeof(errorMessage) !== "string") {
+                $("div.serverError").css("visibility", "visible");
+                $("div.serverError").text(errorMessage);
+            }
         },
 
         dragenter: function(event){
