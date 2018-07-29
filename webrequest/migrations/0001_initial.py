@@ -8,17 +8,19 @@ import django.utils.timezone
 def create_seed_reports(apps, schema_editor):
     Report = apps.get_model('webrequest', 'Report')
 
-    r = Report.objects.create(key="termination",
-                                name = "Termination report",
-                                description = "Merge termination reports from 1C and Lanteria",
-                                maxDocuments = 2,
-                                pathToScript = settings.BASE_DIR + "/webrequest/scripts/termination_script.py")
+    r = Report.objects.create(key="garmin",
+                                name = "Daily heart rate",
+                                description = "Convert and merge *_data.csv and from Garmin device.",
+                                maxDocuments = -1,
+                                allowedExtentions = "CSV",
+                                pathToScript = settings.BASE_DIR + "/webrequest/scripts/garmin_script.py")
     r.save()
 
     r = Report.objects.create(key = "telegram",
-                                name = "Telegram report",
-                                description = "Check correlation between inten.to, tlgrm.ru, tchannels.me and tsear.ch databases",
+                                name = "Telegram channels",
+                                description = "Show correlation between inten.to, tlgrm.ru, tchannels.me and tsear.ch databases.",
                                 maxDocuments = 4,
+                                allowedExtentions = "",
                                 pathToScript = settings.BASE_DIR + "/webrequest/scripts/telegram_script.py")
     r.save()
 
