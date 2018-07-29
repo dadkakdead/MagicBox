@@ -3,7 +3,7 @@ div, p, h1, h2, h3 {
 }
 
 body {
-    background-color: #D4E1EF
+    background-color: #D4E1EF;
 }
 
 #description {
@@ -70,6 +70,19 @@ body {
 #download > img {
     width: 140px;
     height: auto;
+}
+
+
+div.serverError {
+    visibility: hidden;
+    position:absolute;
+    left: 0;
+    top: 0;
+    min-height: 100vh;
+    color: black;
+    background-color: red;
+    opacity: 0.8;
+    white-space: pre-wrap;
 }
 
 .dropzone {

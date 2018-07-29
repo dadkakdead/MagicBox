@@ -41,6 +41,6 @@ def create_report(pathToZip):
 
     df_filtered = df_merged.replace(np.nan, '', regex=True)
 
-    reportPath = write_report(df_filtered)
+    reportPath = write_report(df_filtered, "output")
     archive.close()
     return reportPath

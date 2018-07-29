@@ -48,8 +48,9 @@ def new_report(request, reportKey):
             processorUrl = "/webrequest/" + reportKey + "/make/"
 
             dropzoneMaxFiles = reportMatched[0].maxDocuments
+            allowedExtentions = reportMatched[0].allowedExtentions
 
-            return render(request, 'request_report.html', {'reports': Report.objects.all().order_by('-key'), 'responses': responsesPerKey[:5], 'reportName': reportName, 'reportDescription': reportDescription, 'scriptModificationTime' : scriptModificationTime, 'processorUrl': processorUrl, 'dropzoneMaxFiles': dropzoneMaxFiles})
+            return render(request, 'request_report.html', {'reports': Report.objects.all().order_by('-key'), 'responses': responsesPerKey[:5], 'reportName': reportName, 'reportDescription': reportDescription, 'scriptModificationTime' : scriptModificationTime, 'processorUrl': processorUrl, 'dropzoneMaxFiles': dropzoneMaxFiles, 'allowedExtentions': allowedExtentions})
         else:
             return HttpResponse("There is no report for key ->" + reportKey + "<-. Please check the URL.")
 

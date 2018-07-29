@@ -163,6 +163,6 @@ def create_report(pathToZip):
 
         df_f = pd.concat([df_f, df_c]).reset_index(drop=True)
 
-    reportPath = write_report(df_f)
+    reportPath = write_report(df_f, "output")
     archive.close()
     return reportPath

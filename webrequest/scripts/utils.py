@@ -4,13 +4,17 @@ from os.path import isfile, join
 
 import sys
 
-import datetime
 import pandas as pd
 import numpy as np
 import re
 
+import time
+import datetime
+import pytz
+
 import string
 import random
+import math
 
 import zipfile
 import io
@@ -18,17 +22,28 @@ import io
 #for storing files properly
 from django.conf import settings
 
-def write_report(df):
+def get_list_of_files(zf):
+    fileNames = []
+    for i in range(0,len(zf.infolist())):
+        if not ("__" in zf.infolist()[i].filename):
+            fileNames.append(zf.infolist()[i].filename)
+    return fileNames
+
+def write_report(df, sheetName):
     # make random file name
     fileName = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(10)) + ".xlsx"
-    filePath = settings.MEDIA_ROOT + fileName
+
+    try:
+        filePath =  settings.MEDIA_ROOT + fileName
+    except:
+        filePath =  "/home/devrazdev/" + fileName
 
     # write the output to excel
     writer = pd.ExcelWriter(filePath, engine='openpyxl')
-    df.to_excel(writer, "output", index=False)
+    df.to_excel(writer, sheetName, index=False)
 
     workbook  = writer.book
-    worksheet = writer.sheets['output']
+    worksheet = writer.sheets[sheetName]
 
     # automatically scale the columns
     for columnCells in worksheet.columns:
@@ -55,12 +70,3 @@ def write_report(df):
 
     writer.save()
     return filePath
-
-# when i archived 2 excel files on Mac, it turned out to be 5 files in the archive
-# this utility function helps count real files in the archive
-def get_list_of_files(zf):
-    fileNames = []
-    for i in range(0,len(zf.infolist())):
-        if not ("__" in zf.infolist()[i].filename):
-            fileNames.append(zf.infolist()[i].filename)
-    return fileNames
