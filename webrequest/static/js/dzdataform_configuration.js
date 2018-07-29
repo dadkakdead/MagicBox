@@ -59,6 +59,7 @@ $(document).ready(function() {
         },
 
         error: function (file, errorMessage) {
+            console.log(errorMessage);
             if (typeof(errorMessage) !== "string") {
                 $("div.serverError").css("visibility", "visible");
                 $("div.serverError").text(errorMessage);
