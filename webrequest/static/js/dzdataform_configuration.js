@@ -38,7 +38,7 @@ $(document).ready(function() {
             document.querySelector("#dzDataSubmit").addEventListener("click", function() {
                 if ((dropzoneMaxFiles > 0 && myDropzone.getAcceptedFiles().length == dropzoneMaxFiles) || (dropzoneMaxFiles == -1 && myDropzone.getAcceptedFiles().length > 0)) {
                     myDropzone.processQueue();
-                    
+
                     $("#dzDataForm, #submission").css({opacity: 0.0, visibility: "hidden"}).animate({opacity: 0}, 200, function(){
                         $("#dzDataForm, #submission").remove();
                     });
