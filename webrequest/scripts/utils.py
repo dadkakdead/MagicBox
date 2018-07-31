@@ -21,6 +21,22 @@ import io
 
 #for storing files properly
 from django.conf import settings
+from webrequest.models import Report
+
+def read_file(zf, fileNameFull, delimiter):
+    fileName, fileExtension = os.path.splitext(fileNameFull)
+    pCsv = re.compile('^.CSV')
+    pExcel = re.compile('^.XLS*')
+
+    df_in = pd.DataFrame()
+
+    if not(pCsv.match(fileExtension.upper()) is None):
+        df_in = pd.read_csv(io.BytesIO(zf.read(fileNameFull)), delimiter=delimiter, encoding = 'utf-8')
+
+    if not(pExcel.match(fileExtension.upper()) is None):
+        df_in = pd.read_excel(io.BytesIO(zf.read(fileNameFull)), sheet_name=0, encoding = 'utf-8', index=False)
+
+    return df_in
 
 def get_list_of_files(zf):
     fileNames = []

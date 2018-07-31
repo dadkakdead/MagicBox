@@ -12,6 +12,7 @@ class Report(models.Model):
     description = models.CharField(max_length=500, blank=True)
     pathToScript = models.CharField(max_length=500, editable=False)
     maxDocuments = models.IntegerField(default=-1, validators=[MinValueValidator(-1)])
+    delimiter = models.CharField(max_length=100, blank=True)
     allowedExtentions = models.CharField(default="XLS,XLSX,XLSM", validators=[RegexValidator(regex='^[,A-Z]{1,}$', message='Write the extension in upper case one by one. Example: XLS,XLSX,XLSM', code='nomatch')], max_length=100)
     timeCreated = models.DateTimeField(default=django.utils.timezone.now, editable=False)
     timeModified = models.DateTimeField(default=django.utils.timezone.now, editable=False)
@@ -23,13 +24,13 @@ class Report(models.Model):
     def save(self, *args, **kwargs):
         if self._state.adding:
             self.timeCreated = django.utils.timezone.now()
-            self.pathToScript = settings.BASE_DIR + "/webrequest/scripts/" + self.key + "_script.py"
+            self.pathToScript = "/webrequest/scripts/" + self.key + "_script.py"
 
-        if os.path.isfile(self.pathToScript):
+        if os.path.isfile(settings.BASE_DIR + self.pathToScript):
             pass
         else:
             source = settings.BASE_DIR + "/webrequest/scripts/backup/template_script.py"
-            destination = self.pathToScript
+            destination = settings.BASE_DIR + self.pathToScript
             shutil.copy(source, destination)
 
         self.timeModified = django.utils.timezone.now()

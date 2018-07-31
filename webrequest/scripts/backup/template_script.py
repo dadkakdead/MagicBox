@@ -1,6 +1,6 @@
-from webrequest.scripts.utils import *'
+from webrequest.scripts.utils import *
 
-def create_report(pathToZip):
+def create_report(reportKey, pathToZip):
     #read the archive with input file to the memory
     archive = zipfile.ZipFile(pathToZip, 'r')
     filesInArchive = get_list_of_files(archive)
@@ -10,15 +10,14 @@ def create_report(pathToZip):
     #convert all the input files
     for i in range(0, len(filesInArchive)):
         fileName = filesInArchive[i]
-
-        df_in = pd.read_excel(io.BytesIO(archive.read(fileName)), sheet_name=0, encoding = 'utf-8', index=False)
+        df_in = read_file(archive, fileName, Report.objects.all().filter(key=reportKey)[0].delimiter)
 
         #*************************#
         #----- YOUR CODE HERE -----
         #*************************#
 
     # write report
-    reportPath = write_report(df_out)
+    reportPath = write_report(df_out, "output")
 
     # close the reading session
     archive.close()

@@ -7,6 +7,7 @@ from django.core.files.base import ContentFile
 from django.contrib.auth.decorators import login_required
 
 from .models import Report, Request, Response
+from django.conf import settings
 
 import os, sys
 import time, datetime
@@ -34,12 +35,9 @@ def new_report(request, reportKey):
                     responsesPerKey.append(response)
 
             # pass report settings to front-end
-            reportName = reportMatched[0].name
-
-            reportDescription = reportMatched[0].description
-
-            if pathlib.Path(reportMatched[0].pathToScript).is_file():
-                scriptModificationTime = str(datetime.datetime.fromtimestamp(os.path.getmtime(reportMatched[0].pathToScript)).strftime('%B %d, %Y'))
+            scriptPath = settings.BASE_DIR + reportMatched[0].pathToScript
+            if pathlib.Path(scriptPath).is_file():
+                scriptModificationTime = str(datetime.datetime.fromtimestamp(os.path.getmtime(scriptPath)).strftime('%B %d, %Y'))
             else:
                 scriptModificationTime = str()
 
@@ -47,10 +45,7 @@ def new_report(request, reportKey):
 
             processorUrl = "/webrequest/" + reportKey + "/make/"
 
-            dropzoneMaxFiles = reportMatched[0].maxDocuments
-            allowedExtentions = reportMatched[0].allowedExtentions
-
-            return render(request, 'request_report.html', {'reports': Report.objects.all().order_by('-key'), 'responses': responsesPerKey[:5], 'reportName': reportName, 'reportDescription': reportDescription, 'scriptModificationTime' : scriptModificationTime, 'processorUrl': processorUrl, 'dropzoneMaxFiles': dropzoneMaxFiles, 'allowedExtentions': allowedExtentions})
+            return render(request, 'request_report.html', {'report': reportMatched[0], 'allReports': reversed(Report.objects.all().order_by('-key')), 'responses': responsesPerKey[:5], 'scriptModificationTime' : scriptModificationTime, 'requestUrl': requestUrl, 'processorUrl': processorUrl})
         else:
             return HttpResponse("There is no report for key ->" + reportKey + "<-. Please check the URL.")
 
@@ -75,11 +70,11 @@ def make_report(request, reportKey):
     # run the report script
     processingModule = importlib.import_module("webrequest.scripts." + reportKey + "_script", package=None)
     processingScript = getattr(processingModule, "create_report")
-    reportFilePath = processingScript(reportRequest.requestZip.path)
+    reportFilePath = processingScript(reportKey, reportRequest.requestZip.path)
 
     # save the resulting report in the response object
     reportResponse = Response(request=reportRequest)
-    reportResponse.responseFile.save(os.path.basename(reportFilePath), File(open(reportFilePath, "r")))
+    reportResponse.responseFile.save(os.path.basename(reportFilePath), File(open(reportFilePath, "rb")))
     reportResponse.save()
 
     # remove the temporary file
@@ -89,3 +84,12 @@ def make_report(request, reportKey):
     request.session['reportUrl'] = reportResponse.responseFile.url
 
     return HttpResponse(reportResponse.responseFile.url)
+
+@login_required
+def download_script(request, scriptName):
+    scriptPath = settings.BASE_DIR + "/webrequest/scripts/" + scriptName
+    if os.path.exists(scriptPath):
+        with open(scriptPath, 'rb') as fh:
+            response = HttpResponse(fh.read(), content_type="text/plain")
+            response['Content-Disposition'] = 'inline; filename=' + os.path.basename(scriptPath)
+            return response

@@ -1,7 +1,10 @@
 .DS_Store
 db.sqlite3
+__pycache__
 
-ntReport/__pycache__/*
+ntReport/static/
+
+ntReport/documents/*
 
 ntReport/documents/requests/*
 !ntReport/documents/requests/.gitkeep
@@ -9,10 +12,6 @@ ntReport/documents/requests/*
 ntReport/documents/responses/*
 !ntReport/documents/responses/.gitkeep
 
-webrequest/__pycache__/*
-
 webrequest/migrations/*
 !webrequest/migrations/__init__.py
 !webrequest/migrations/0001_initial.py
-
-webrequest/scripts/__pycache__/*

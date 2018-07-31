@@ -59,10 +59,10 @@ $(document).ready(function() {
         },
 
         error: function (file, errorMessage) {
-            if (typeof(errorMessage) !== "string") {
+            if (errorMessage.toLowerCase().includes("django")) {
                 $("div.serverError").css("visibility", "visible");
                 $("div.serverError").text(errorMessage);
-            }
+            }                
         },
 
         dragenter: function(event){

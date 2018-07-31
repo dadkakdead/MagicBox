@@ -3,8 +3,8 @@
 {% block customstatic %}
     <script type="text/javascript" src="http://cdn.rawgit.com/enyo/dropzone/master/dist/dropzone.js"></script>
     <script type="text/javascript">
-            dropzoneMaxFiles = Number({{ dropzoneMaxFiles }});
-            allowedExtentions = "{{ allowedExtentions }}"
+            dropzoneMaxFiles = Number({{ report.maxDocuments }});
+            allowedExtentions = "{{ report.allowedExtentions }}"
     </script>
     <script type="text/javascript" src="/static/js/dzdataform_configuration.js"></script>
 
@@ -20,17 +20,17 @@
         <div id="description">
                 <span class="largeText">
                     <b>
-                        <a href="{{ requestUrl }}">{{ reportName }}</a>
+                        <a href="{{ requestUrl }}">{{ report.name }}</a>
                     </b>
                 </span>
                 <br>
                 <span class="smallText">
-                    <i>Description: {{ reportDescription }}</i>
+                    <i>Description: {{ report.description }}</i>
                 </span>
 
                 <br><br>
                 <span class="smallText">
-                    Last modified on {{ scriptModificationTime }}
+                    Last modified on {{ scriptModificationTime }}. <a href="{{ report.pathToScript }}">Show script</a>
                 </span>
         </div>
 
@@ -74,7 +74,7 @@
                 <span class="smallText">
                     <b>Other reports</b>
                     <br>
-                        {% for report in reports %}
+                        {% for report in allReports %}
                             <a href="{{ report.url }}">{{ report.key }}</a>
                             <br>
                         {% endfor %}
