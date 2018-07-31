@@ -62,7 +62,7 @@ Suggesting you deploy it on PythonAnywhere. If you pay them [5$] for Jupyter not
 2. Choose one of two sample reports: **garmin** or **telegram**
     - **garmin**: [very frequent request on Gamin forum]. There is a bunch of CSV files with export data from [Garmin Connect] for 1 day. The task is to derive the heart rate time series.
     - **telegram**: there are 4 lists of [Telegram channels] from 4 sources ([1], [2], [3], [4]), all in different formats. The task is to create a single list of unique channels and flag the source (can be multiple)
-3. Drag & drop the sample data. [Sampe data] and scripts are included in the repo, Jupyter Notebooks can be [downloaded from GDrive].
+3. Drag & drop the sample data. [Sampe data] and [scripts] are included in the repo, Jupyter Notebooks can be [downloaded from GDrive].
 4. Click "GO"
 5. Download the report and open in Microsoft Excel
 
@@ -77,6 +77,7 @@ Suggesting you deploy it on PythonAnywhere. If you pay them [5$] for Jupyter not
 [very frequent request on Gamin forum]: <https://forums.garmin.com/search?q=export+%22heart+rate%22&searchJSON=%7B%22keywords%22%3A%22export+%5C%22heart+rate%5C%22%22%7D>
 
 [Sampe data]: <https://github.com/devrazdev/ntReport/tree/master/misc/sample%20input/>
+[scripts]: <https://github.com/devrazdev/ntReport/tree/master/webrequest/scripts>
 [downloaded from GDrive]: <https://drive.google.com/open?id=1LMCaCXxlBzrezmLBOI-wpp1WEdyFurLl>
 
 
