@@ -11,7 +11,7 @@ No more than drag & drop.
 ![ntReport-demo](https://github.com/devrazdev/ntReport/raw/master/misc/demo.gif)
 
 ### Why should I use it? ###
-Once you automate a repetitions spreadsheet operation on a local computer, there is a need to provide a simple interface for others to use it — **ntReport** let's you do it with just a few clicks in admin panel and copy-paste to template file. See the whole process in the [product demo]. 
+Once you automate a repetitious spreadsheet operation on a local computer, there is a need to provide a simple interface for others to use it — **ntReport** let's you do it with just a few clicks in admin panel and copy-paste to template file. See the whole process in the [product demo]. 
 
 Examples of "repetitions spreadsheet operation":
 - Generating reports from [Excel databases], which usually require "Merge", "Transform", "Lookup" operations
