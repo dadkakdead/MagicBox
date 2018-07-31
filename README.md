@@ -64,7 +64,7 @@ Suggesting you deploy it on PythonAnywhere. If you pay them [5$] for Jupyter not
     - **telegram**: there are 4 lists of [Telegram channels] from 4 sources ([1], [2], [3], [4]), all in different formats. The task is to create a single list of unique channels and flag the source (can be multiple)
 3. Drag & drop the sample data. [Sampe data] and [scripts] are included in the repo, Jupyter Notebooks can be [downloaded from GDrive].
 4. Click "GO"
-5. Download the report and open in Microsoft Excel
+5. Download and open the report
 
 
 [Telegram channels]: <https://telegram.org/faq_channels>
