@@ -47,8 +47,8 @@ Suggesting you deploy it on PythonAnywhere. If you pay them [5$] for Jupyter not
 
 1. [Create free account at PythonAnywhere]
 2. Go to PythonAnywhere dashboard, open new bash console, run the following commands:
-    - git clone https://github.com/devrazdev/ntReport.git
     - mkvirtualenv --python=/usr/bin/python3.6 mysite-virtualenv
+    - git clone https://github.com/devrazdev/ntReport.git
     - cd ntReport/
     - sh install.sh (you will be asked to set login/pass for superuser)
 3. [Create new web application]
