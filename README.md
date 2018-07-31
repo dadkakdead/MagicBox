@@ -51,7 +51,7 @@ Suggesting you deploy it on PythonAnywhere. If you pay them [5$] for Jupyter not
 - [Configure PythonAnywheres's notebooks to use the same virtual environment]
 
 ## Farewell ##
-I would be happy to hear any feedback/news from about how you use **ntReport** in real life. Please fee free to contact me by e-mail at devrazdev@gmail.com. Thank you.
+I would be happy to hear any feedback/news about how you use **ntReport** in real life. Feel free to write me at devrazdev@gmail.com. Thank you.
 
 
 [5$]: <https://www.pythonanywhere.com/pricing/>
