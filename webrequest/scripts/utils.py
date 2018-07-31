@@ -18,10 +18,10 @@ import math
 
 import zipfile
 import io
+import matplotlib.pyplot as plt
 
 #for storing files properly
 from django.conf import settings
-from webrequest.models import Report
 
 def read_file(zf, fileNameFull, delimiter):
     fileName, fileExtension = os.path.splitext(fileNameFull)
@@ -52,7 +52,7 @@ def write_report(df, sheetName):
     try:
         filePath =  settings.MEDIA_ROOT + fileName
     except:
-        filePath =  "/home/devrazdev/" + fileName
+        filePath =  str(re.compile('/home/\w{1,}/').match(os.getcwd())[0]) + fileName
 
     # write the output to excel
     writer = pd.ExcelWriter(filePath, engine='openpyxl')
