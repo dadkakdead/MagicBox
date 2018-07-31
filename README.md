@@ -49,6 +49,7 @@ Suggesting you deploy it on PythonAnywhere. If you pay them [5$] for Jupyter not
 
 ## How to ##
 - [Configure PythonAnywheres's notebooks to use the same virtual environment]
+- [Automate boring stuff]
 
 ## Farewell ##
 I would be happy to hear any feedback/news about how you use **ntReport** in real life. Feel free to write me at devrazdev@gmail.com. Thank you.
@@ -69,3 +70,4 @@ I would be happy to hear any feedback/news about how you use **ntReport** in rea
 [Dropzone.js]: <https://www.dropzonejs.com/>
 [Django]: <https://www.djangoproject.com/>
 [Configure PythonAnywheres's notebooks to use the same virtual environment]: <https://help.pythonanywhere.com/pages/IPythonNotebookVirtualenvs/>
+[Automate boring stuff]: <https://automatetheboringstuff.com/>
