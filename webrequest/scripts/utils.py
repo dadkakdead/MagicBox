@@ -18,7 +18,6 @@ import math
 
 import zipfile
 import io
-import matplotlib.pyplot as plt
 
 #for storing files properly
 from django.conf import settings
