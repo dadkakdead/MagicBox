@@ -1,4 +1,5 @@
 from webrequest.scripts.utils import *
+from webrequest.models import Report
 
 def create_report(reportKey, pathToZip):
     #read the archive with input file to the memory

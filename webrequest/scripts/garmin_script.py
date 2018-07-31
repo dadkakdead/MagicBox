@@ -1,4 +1,5 @@
 from webrequest.scripts.utils import *
+from webrequest.models import Report
 
 def convert_time(t):
     t_naive = datetime.datetime.fromtimestamp(t)
