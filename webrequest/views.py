@@ -79,7 +79,7 @@ def make_report(request, reportKey):
 
     # save the resulting report in the response object
     reportResponse = Response(request=reportRequest)
-    reportResponse.responseFile.save(os.path.basename(reportFilePath), File(open(reportFilePath, "rb")))
+    reportResponse.responseFile.save(os.path.basename(reportFilePath), File(open(reportFilePath, "r")))
     reportResponse.save()
 
     # remove the temporary file
