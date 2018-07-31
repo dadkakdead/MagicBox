@@ -48,8 +48,8 @@ Suggesting you deploy it on PythonAnywhere. If you pay them [5$] for Jupyter not
 - Back end: [Django] for business logic; received files are stored in ZIP archive
 
 ## How to ##
-- [Configure PythonAnywheres's notebooks to use the same virtual environment]
-- [Automate boring stuff]
+- [Configure PythonAnywhere's notebooks to use the same virtual environment as ntReport]
+- [Automate boring stuff with Python]
 
 ## Farewell ##
 I would be happy to hear any feedback/news about how you use **ntReport** in real life. Feel free to write me at devrazdev@gmail.com. Thank you.
@@ -69,5 +69,5 @@ I would be happy to hear any feedback/news about how you use **ntReport** in rea
 [Windows automation]: <https://autohotkey.com/>
 [Dropzone.js]: <https://www.dropzonejs.com/>
 [Django]: <https://www.djangoproject.com/>
-[Configure PythonAnywheres's notebooks to use the same virtual environment]: <https://help.pythonanywhere.com/pages/IPythonNotebookVirtualenvs/>
-[Automate boring stuff]: <https://automatetheboringstuff.com/>
+[Configure PythonAnywhere's notebooks to use the same virtual environment as ntReport]: <https://help.pythonanywhere.com/pages/IPythonNotebookVirtualenvs/>
+[Automate boring stuff with Python]: <https://automatetheboringstuff.com/>
