@@ -11,14 +11,13 @@ No more than drag & drop.
 ![ntReport-demo](https://github.com/devrazdev/ntReport/raw/master/misc/demo.gif)
 
 ### Why should I use it? ###
-Once you write a Python script for a repetitious spreadsheet operation on a local computer, there is a need to provide a simple interface for others to use it — **ntReport** let's you do it with just a few clicks in admin panel and copy-paste to the  template file. See the whole process in the [video tutorial]. 
+Once you write a Python script for a repetitious spreadsheet operation on a local computer, there is a need to provide a simple interface for others to use it — **ntReport** let's you do it with just a few clicks in admin panel and copy-paste to the  template file.
 
 Examples of "repetitious spreadsheet operation", which are worth automating:
 - Generating reports from [Excel databases], which usually require "Merge", "Transform", "Lookup" operations
 - Post-processing of text format export files
 - Reformating operations, which usually require macros / [Windows automation]
 
-[video tutorial]: <https://www.youtube.com/watch?v=GMMdzOEEptk>
 [Excel databases]: <https://www.lifewire.com/create-a-database-in-excel-3123446>
 [Windows automation]: <https://autohotkey.com/>
 
@@ -27,7 +26,7 @@ Microsoft Excel plays a huge role in everyday data cruching tasks (it's used by 
 
 One of the approaches is doing data analysis with Python (edit in Jupyter, import [Pandas] + [Numpy] + whatsoever). Gossip news: [Microsoft considers adding Python support to Microsoft Excel].
 
-Reality is that Excel is intuitive and Python is not, so people rather "wait until calculation finishes" ot "repeat manually" than anything. For such people there are "visual programming" solutions ([Alteryx], [Easymorph]), but desktop versions are priced like Tesla, and server versions — like rocketships. Meaning, your 10 lines of Python code can be very time-saving.
+Reality is that Excel is intuitive and Python is not, so people rather "wait until calculation finishes" ot "repeat manually" than anything. For such people there are "visual programming" solutions ([Alteryx], [Easymorph]), but desktop versions are priced like Tesla, and server versions — like rocketships. Meaning, your 10 lines of Python code can be very time-saving for them.
 
 [100s millions people]: <https://medium.com/@hjalli/microsoft-excel-office-has-about-1-2billion-62239c4728ad>
 [recommend]: <https://www.amazon.com/Data-Smart-Science-Transform-Information/dp/111866146X>
@@ -92,8 +91,8 @@ There is also a 5-minutes-long [video tutorial].
 
 
 ### Under the hood ###
-- Front end: [Dropzone.js] for drag & drop UI; total number of files and files' extensions are validated
-- Back end: [Django] for business logic; received files are stored in ZIP archive
+- Front end: [Dropzone.js] for drag & drop and initial validation
+- Back end: [Django] for business logic; received files are stored in ZIP archives
 
 [Dropzone.js]: <https://www.dropzonejs.com/>
 [Django]: <https://www.djangoproject.com/>
