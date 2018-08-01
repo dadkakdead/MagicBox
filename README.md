@@ -11,14 +11,14 @@ No more than drag & drop.
 ![ntReport-demo](https://github.com/devrazdev/ntReport/raw/master/misc/demo.gif)
 
 ### Why should I use it? ###
-Once you write a Python script for a repetitious spreadsheet operation on a local computer, there is a need to provide a simple interface for others to use it — **ntReport** let's you do it with just a few clicks in admin panel and copy-paste to template file. See the whole process in the [product demo]. 
+Once you write a Python script for a repetitious spreadsheet operation on a local computer, there is a need to provide a simple interface for others to use it — **ntReport** let's you do it with just a few clicks in admin panel and copy-paste to the  template file. See the whole process in the [video tutorial]. 
 
 Examples of "repetitious spreadsheet operation", which are worth automating:
 - Generating reports from [Excel databases], which usually require "Merge", "Transform", "Lookup" operations
 - Post-processing of text format export files
 - Reformating operations, which usually require macros / [Windows automation]
 
-[product demo]: <https://github.com/devrazdev/ntReport/raw/master/misc/demo.gif>
+[video tutorial]: <https://www.youtube.com/watch?v=GMMdzOEEptk>
 [Excel databases]: <https://www.lifewire.com/create-a-database-in-excel-3123446>
 [Windows automation]: <https://autohotkey.com/>
 
@@ -62,10 +62,19 @@ Suggesting you deploy it on PythonAnywhere. If you pay them [5$] for Jupyter not
 2. Choose one of two sample reports: **garmin** or **telegram**
     - **garmin**: [very frequent request on Gamin forum]. There is a bunch of CSV files with export data from [Garmin Connect] for 1 day. The task is to derive the heart rate time series.
     - **telegram**: there are 4 lists of [Telegram channels] from 4 sources ([1], [2], [3], [4]), all in different formats. The task is to create a single list of unique channels and flag the source (can be multiple)
-3. Drag & drop the sample data. [Sampe data] and [scripts] are included in the repo, Jupyter Notebooks can be [downloaded from GDrive].
+3. Drag & drop the sample data. [Sample data] and [scripts] are included in the repo, Jupyter Notebooks can be [downloaded from Google Drive].
 4. Click "GO"
 5. Download and open the report
 
+### Adding new report ###
+1. After installation, open ntReport in your browser
+2. Click "Manage reports"
+3. From the administrator intefrace, click "Add report"
+4. Fill the form, save it
+5. On the server side, edit the *~/ntReport/webrequest/scripts/<report_key>_script.py*
+6. Reload the web application
+
+There is also a 5-minutes-long [video tutorial].
 
 [Telegram channels]: <https://telegram.org/faq_channels>
 [1]: <https://inten.to/telegram/>
@@ -76,9 +85,10 @@ Suggesting you deploy it on PythonAnywhere. If you pay them [5$] for Jupyter not
 [Garmin Connect]: <https://connect.garmin.com/en-US/>
 [very frequent request on Gamin forum]: <https://forums.garmin.com/search?q=export+%22heart+rate%22&searchJSON=%7B%22keywords%22%3A%22export+%5C%22heart+rate%5C%22%22%7D>
 
-[Sampe data]: <https://github.com/devrazdev/ntReport/tree/master/misc/sample%20input/>
+[Sample data]: <https://github.com/devrazdev/ntReport/tree/master/misc/sample%20input/>
 [scripts]: <https://github.com/devrazdev/ntReport/tree/master/webrequest/scripts>
-[downloaded from GDrive]: <https://drive.google.com/open?id=1LMCaCXxlBzrezmLBOI-wpp1WEdyFurLl>
+[downloaded from Google Drive]: <https://drive.google.com/open?id=1LMCaCXxlBzrezmLBOI-wpp1WEdyFurLl>
+[video tutorial]: <https://www.youtube.com/watch?v=GMMdzOEEptk>
 
 
 ### Under the hood ###
