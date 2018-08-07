@@ -65,6 +65,7 @@ def create_report(reportKey, pathToZip):
     df_out = add_minutes(df_out.sort_values(by=['timestamp']).reset_index(drop=True))
     df_out = df_out[['time', 'minutes', 'heart_rate[bpm]']][df_out["minutes"] > 0][df_out["heart_rate[bpm]"] > 0].drop_duplicates().reset_index(drop=True)
 
+
     # write report
     reportPath = write_report(df_out, "output")
 

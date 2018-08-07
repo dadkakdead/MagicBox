@@ -56,7 +56,7 @@
 
             <div id="history">
                 <span class="smallText">
-                    <b>Recent reports</b>
+                    <b>Last reports</b>
                     <br>
                     {% if responses %}
                         {% for report in responses %}
@@ -72,7 +72,7 @@
                 <hr>
 
                 <span class="smallText">
-                    <b>Other reports</b>
+                    <b>Conversion types</b>
                     <br>
                         {% for report in allReports %}
                             <a href="{{ report.url }}">{{ report.key }}</a>
