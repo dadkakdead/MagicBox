@@ -12,11 +12,12 @@ list/*
 # Preserving MagicBox/documents folder structure
 MagicBox/documents/*
 
-MagicBox/documents/requests/*
 !MagicBox/documents/requests/.gitkeep
+MagicBox/documents/requests/*
 
-MagicBox/documents/responses/*
 !MagicBox/documents/responses/.gitkeep
+MagicBox/documents/responses/*
+
 
 # Preserving migrations for fast start
 webrequest/migrations/*
