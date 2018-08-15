@@ -2,15 +2,15 @@
 db.sqlite3
 __pycache__
 
-ntReport/static/
+MagicBox/static/
 
-ntReport/documents/*
+MagicBox/documents/*
 
-ntReport/documents/requests/*
-!ntReport/documents/requests/.gitkeep
+MagicBox/documents/requests/*
+!MagicBox/documents/requests/.gitkeep
 
-ntReport/documents/responses/*
-!ntReport/documents/responses/.gitkeep
+MagicBox/documents/responses/*
+!MagicBox/documents/responses/.gitkeep
 
 webrequest/migrations/*
 !webrequest/migrations/__init__.py

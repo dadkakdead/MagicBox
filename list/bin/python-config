@@ -1,4 +1,4 @@
-#!/home/devrazdev/ntReport/list/bin/python
+#!/home/devrazdev/MagicBox/list/bin/python
 
 import sys
 import getopt
