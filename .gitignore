@@ -10,8 +10,7 @@ static/*
 list/*
 
 # Preserving MagicBox/documents folder structure
-MagicBox/documents/requests/*
-MagicBox/documents/responses/*
+MagicBox/documents/*
 !/**/.gitkeep
 
 # Preserving migrations for fast start
