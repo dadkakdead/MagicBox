@@ -57,24 +57,20 @@ The best place to host your **MagicBox** is PythonAnywhere. If you pay them [5$ 
 
 ### Test run ###
 1. After installation, open **MagicBox** in your browser.
-
 2. Choose one of the two example scripts (links on the right side of the page): **garmin** or **telegram**.
     - **garmin**: [very frequent request on Garmin forum]. Garmin is a smart watch brand that allows real-time heart rate monitoring. The task is to create a graph of heart rate over time throughout the day based on raw data downloaded from [Garmin website]. The tricky part is the custom binary raw data format. Moreover, the data for 1 day of measurements is split into dozens of files.  
     - **telegram**: There is data organized in columns (this is actually information about [Telegram channels]). Each line represents a data entry (a channel) and each column is a property such as name, description or size. 4 files available contain data from 4 sources ([1], [2], [3], [4]), all in different column formats. The task is to create a single list of data entries with unique name and flag the source file (can be multiple). 
-    
 3. Drag & drop the sample data. [Sample data] and [scripts] are included in the repo, Jupyter Notebooks can be [downloaded from Google Drive].
-
 4. Click "GO".
-
 5. Download and open the report.
 
 ### Adding new script ###
 Step-by-step guide:
 1. After installation, open **MagicBox** in your browser
 2. Click "Manage scripts" to open administrator panel
-3. From the administrator panel, click "Add script"
+3. From the administrator panel, click "Add report"
 4. Fill the form, save it
-5. On the server side, edit the *~/MagicBox/webrequest/scripts/<script_key>_script.py*
+5. On the server side, edit the *~/MagicBox/webrequest/scripts/<report_key>_script.py*
 6. Reload the web application at PythonAnywhere
 
 Video tutorial: [5 minutes long video, available on Youtube]
