@@ -1,6 +1,6 @@
-### What is ntReport? ###
+### What is MagicBox? ###
 
-**ntReport** is web application, which you deploy to provide easy access to your data crunching scripts. It's built with Django.
+**MagicBox** is web application, which you deploy to provide easy access to your data crunching scripts. It's built with Django.
 
 ---
 
@@ -8,10 +8,10 @@
 
 No more than drag & drop.
 
-![ntReport-demo](https://github.com/devrazdev/ntReport/raw/master/misc/demo.gif)
+![MagicBox-demo](https://github.com/devrazdev/MagicBox/raw/master/misc/demo.gif)
 
 ### Why should I use it? ###
-Once you write a Python script for a repetitious spreadsheet operation on a local computer, there is a need to provide a simple interface for others to use it — **ntReport** let's you do it with just a few clicks in admin panel and copy-paste to the  template file.
+Once you write a Python script for a repetitious spreadsheet operation on a local computer, there is a need to provide a simple interface for others to use it — **MagicBox** let's you do it with just a few clicks in admin panel and copy-paste to the  template file.
 
 Examples of "repetitious spreadsheet operation", which are worth automating:
 - Generating reports from [Excel databases], which usually require "Merge", "Transform", "Lookup" operations
@@ -47,8 +47,8 @@ Suggesting you deploy it on PythonAnywhere. If you pay them [5$] for Jupyter not
 1. [Create free account at PythonAnywhere]
 2. Go to PythonAnywhere dashboard, open new bash console, run the following commands:
     - mkvirtualenv --python=/usr/bin/python3.6 mysite-virtualenv
-    - git clone https://github.com/devrazdev/ntReport.git
-    - cd ntReport/
+    - git clone https://github.com/devrazdev/MagicBox.git
+    - cd MagicBox/
     - sh install.sh (you will be asked to set login/pass for superuser)
 3. [Create new web application]
 
@@ -57,7 +57,7 @@ Suggesting you deploy it on PythonAnywhere. If you pay them [5$] for Jupyter not
 [Create new web application]: <https://help.pythonanywhere.com/pages/DeployExistingDjangoProject/>
 
 ### Test run ###
-1. After installation, open ntReport in your browser
+1. After installation, open MagicBox in your browser
 2. Choose one of two sample reports: **garmin** or **telegram**
     - **garmin**: [very frequent request on Gamin forum]. There is a bunch of CSV files with export data from [Garmin Connect] for 1 day. The task is to derive the heart rate time series.
     - **telegram**: there are 4 lists of [Telegram channels] from 4 sources ([1], [2], [3], [4]), all in different formats. The task is to create a single list of unique channels and flag the source (can be multiple)
@@ -66,11 +66,11 @@ Suggesting you deploy it on PythonAnywhere. If you pay them [5$] for Jupyter not
 5. Download and open the report
 
 ### Adding new report ###
-1. After installation, open ntReport in your browser
+1. After installation, open MagicBox in your browser
 2. Click "Manage reports"
 3. From the administrator intefrace, click "Add report"
 4. Fill the form, save it
-5. On the server side, edit the *~/ntReport/webrequest/scripts/<report_key>_script.py*
+5. On the server side, edit the *~/MagicBox/webrequest/scripts/<report_key>_script.py*
 6. Reload the web application
 
 There is also a 5-minutes-long [video tutorial].
@@ -80,12 +80,12 @@ There is also a 5-minutes-long [video tutorial].
 [2]: <https://tlgrm.ru/channels>
 [3]: <http://tchannels.me/>
 [4]: <http://tsear.ch/>
-[a bunch of CSV files]: <https://github.com/devrazdev/ntReport/tree/master/misc/sample%20input/garmin>
+[a bunch of CSV files]: <https://github.com/devrazdev/MagicBox/tree/master/misc/sample%20input/garmin>
 [Garmin Connect]: <https://connect.garmin.com/en-US/>
 [very frequent request on Gamin forum]: <https://forums.garmin.com/search?q=export+%22heart+rate%22&searchJSON=%7B%22keywords%22%3A%22export+%5C%22heart+rate%5C%22%22%7D>
 
-[Sample data]: <https://github.com/devrazdev/ntReport/tree/master/misc/sample%20input/>
-[scripts]: <https://github.com/devrazdev/ntReport/tree/master/webrequest/scripts>
+[Sample data]: <https://github.com/devrazdev/MagicBox/tree/master/misc/sample%20input/>
+[scripts]: <https://github.com/devrazdev/MagicBox/tree/master/webrequest/scripts>
 [downloaded from Google Drive]: <https://drive.google.com/open?id=1LMCaCXxlBzrezmLBOI-wpp1WEdyFurLl>
 [video tutorial]: <https://www.youtube.com/watch?v=GMMdzOEEptk>
 
@@ -98,11 +98,11 @@ There is also a 5-minutes-long [video tutorial].
 [Django]: <https://www.djangoproject.com/>
 
 ## How to ##
-- [Configure PythonAnywhere's notebooks to use the same virtual environment as ntReport]
+- [Configure PythonAnywhere's notebooks to use the same virtual environment as MagicBox]
 - [Automate boring stuff with Python]
 
-[Configure PythonAnywhere's notebooks to use the same virtual environment as ntReport]: <https://help.pythonanywhere.com/pages/IPythonNotebookVirtualenvs/>
+[Configure PythonAnywhere's notebooks to use the same virtual environment as MagicBox]: <https://help.pythonanywhere.com/pages/IPythonNotebookVirtualenvs/>
 [Automate boring stuff with Python]: <https://automatetheboringstuff.com/>
 
 ## Farewell ##
-I would be happy to hear any feedback/news about how you use **ntReport** in real life. Feel free to write me at devrazdev@gmail.com. Thank you.
+I would be happy to hear any feedback/news about how you use **MagicBox** in real life. Feel free to write me at devrazdev@gmail.com. Thank you.
