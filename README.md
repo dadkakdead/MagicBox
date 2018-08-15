@@ -1,28 +1,28 @@
 ### What is MagicBox? ###
 
-**MagicBox** is web application, which you deploy to provide easy access to your data crunching scripts. It's built with Django.
+**MagicBox** is a web application that provides easy access to data crunching scripts. It is built with [Django].
 
 ---
 
-### How easy is it for users? ###
+### How easy is it to use **MagicBox**? ###
 
-No more than drag & drop.
+Simply drag and drop spreadsheets or CSV files into **MagicBox** and click "Go" to run the scripts.
 
 ![MagicBox-demo](https://github.com/devrazdev/MagicBox/raw/master/misc/demo.gif)
 
-### Why should I use it? ###
-Once you write a Python script for a repetitious spreadsheet operation on a local computer, there is a need to provide a simple interface for others to use it — **MagicBox** let's you do it with just a few clicks in admin panel and copy-paste to the  template file.
+### Why should I use **MagicBox**? ###
+**MagicBox** provides a simple interface to run shared Python scripts to automate "repetitious spreadsheet operations."
 
-Examples of "repetitious spreadsheet operation", which are worth automating:
-- Generating reports from [Excel databases], which usually require "Merge", "Transform", "Lookup" operations
+Examples of "repetitious spreadsheet operations" include:
+- Generating reports from [Excel databases], which often require "Merge," "Transform," and "Lookup" operations
 - Post-processing of text format export files
-- Reformating operations, which usually require macros / [Windows automation]
+- Reformatting operations, which often require macros / [Windows automation]
 
 [Excel databases]: <https://www.lifewire.com/create-a-database-in-excel-3123446>
 [Windows automation]: <https://autohotkey.com/>
 
-### Why Microsoft Excel is not enough? ###
-Microsoft Excel plays a huge role in everyday data cruching tasks (it's used by [100s millions people], some of them even [recommend] it for working with Big Data). It's not the best tool for heavy calculations, but many business-critical applications are built with it, so there is constant search for workarounds (even [cloud computing of Excel Spreadsheets]).
+### Why is Microsoft Excel not enough? ###
+Microsoft Excel is used by [millions] for everyday data crunching operations, and many critical business applications are built around this software.  but it is not efficient for bulky and repetitive data processing. Many critical business applications are built around Microsoft Excel, but there is a constant search for workarounds to process such bulky data. (even [cloud computing of Excel Spreadsheets]).
 
 One of the approaches is doing data analysis with Python (edit in Jupyter, import [Pandas] + [Numpy] + whatsoever). Gossip news: [Microsoft considers adding Python support to Microsoft Excel].
 
@@ -105,4 +105,4 @@ There is also a 5-minutes-long [video tutorial].
 [Automate boring stuff with Python]: <https://automatetheboringstuff.com/>
 
 ## Farewell ##
-I would be happy to hear any feedback/news about how you use **MagicBox** in real life. Feel free to write me at devrazdev@gmail.com. Thank you.
+I would be happy to hear any feedback/news about how you use **MagicBox** in real life. Feel free to email me at devrazdev@gmail.com. Thank you.
