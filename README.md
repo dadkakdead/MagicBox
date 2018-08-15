@@ -91,7 +91,7 @@ Video tutorial: [5 minutes long video, available on Youtube]
 
 ### Under the hood ###
 - Front end: [Dropzone.js] (version 5.2.0) for drag & drop interface and initial validation
-- Back end: [Django] (version 2.0.6) for business logic; received files are stored in ZIP archives
+- Back end: [Django] (version 2.1.0) for business logic; received files are stored in ZIP archives
 
 [Dropzone.js]: <https://www.dropzonejs.com/>
 [Django]: <https://www.djangoproject.com/>
