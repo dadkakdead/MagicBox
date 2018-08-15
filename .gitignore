@@ -17,7 +17,7 @@ MagicBox/documents/requests/*
 
 !MagicBox/documents/responses/.gitkeep
 MagicBox/documents/responses/*
-
+!/**/.gitkeep
 
 # Preserving migrations for fast start
 webrequest/migrations/*
