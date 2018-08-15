@@ -25,12 +25,12 @@
                 </span>
                 <br>
                 <span class="smallText">
-                    <i>Description: {{ report.description }}</i>
+                    <i>Goal: {{ report.description }}</i>
                 </span>
 
                 <br><br>
                 <span class="smallText">
-                    Last modified on {{ scriptModificationTime }}. <a href="{{ report.pathToScript }}">Show script</a>
+                    Script was last modified on {{ scriptModificationTime }}. <a href="{{ report.pathToScript }}">Show source code</a>
                 </span>
         </div>
 
@@ -42,7 +42,7 @@
                             <p>
                                 <span class="mediumText"><b><span id="droppedFilesCounter"></span></b></span>
                                 <br>
-                                <span class="smallText">or click to select them</span>
+                                <span class="smallText">(or drag & drop them to the white area)</span>
                             </p>
                         </div>
 
@@ -56,7 +56,7 @@
 
             <div id="history">
                 <span class="smallText">
-                    <b>Last reports</b>
+                    <b>Last "{{ report.key }}" reports</b>
                     <br>
                     {% if responses %}
                         {% for report in responses %}
@@ -72,7 +72,7 @@
                 <hr>
 
                 <span class="smallText">
-                    <b>Conversion types</b>
+                    <b>Scripts</b>
                     <br>
                         {% for report in allReports %}
                             <a href="{{ report.url }}">{{ report.key }}</a>
@@ -85,11 +85,11 @@
                 <span class="smallText">
                     <b>Useful links</b>
                     <br>
-                        <a href="admin/webrequest/report/">Manage reports</a>
+                        <a href="admin/webrequest/report/">Manage scripts</a>
                         <br><br>
                         <a href="https://www.pythonanywhere.com/user/devrazdev/">PythonAnywhere</a>
                         <br>
-                        <a href="https://github.com/devrazdev/MagicBox">github</a>
+                        <a href="https://github.com/devrazdev/MagicBox">MagicBox project page</a>
                 </span>
             </div>
 

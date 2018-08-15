@@ -1,10 +1,15 @@
+# Mac-specific
 .DS_Store
+
+# From development environment
 db.sqlite3
 __pycache__
 
-MagicBox/static/*
-MagicBox/list/*
+# Automatically created by PythonAnywhere
+static/*
+list/*
 
+# Preserving MagicBox/documents folder structure
 MagicBox/documents/*
 
 MagicBox/documents/requests/*
@@ -13,6 +18,7 @@ MagicBox/documents/requests/*
 MagicBox/documents/responses/*
 !MagicBox/documents/responses/.gitkeep
 
+# Preserving migrations for fast start
 webrequest/migrations/*
 !webrequest/migrations/__init__.py
 !webrequest/migrations/0001_initial.py

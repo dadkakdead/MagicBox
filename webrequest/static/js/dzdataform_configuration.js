@@ -24,13 +24,13 @@ $(document).ready(function() {
 
             switch (dropzoneMaxFiles) {
                 case -1:
-                    $("#droppedFilesCounter").text("Drop your files here");
+                    $("#droppedFilesCounter").text("Click to select your files");
                     break
                 case 1:
-                    $("#droppedFilesCounter").text("Drop 1 file here");
+                    $("#droppedFilesCounter").text("Click to select a file");
                     break;
                 default:
-                    $("#droppedFilesCounter").text("Drop " + String(dropzoneMaxFiles) + " files here");
+                    $("#droppedFilesCounter").text("Click to select " + String(dropzoneMaxFiles) + " files");
             }
 
             myDropzone.on("addedFiles", submitButtonSwitch);
@@ -62,7 +62,7 @@ $(document).ready(function() {
             if (errorMessage.toLowerCase().includes("django")) {
                 $("div.serverError").css("visibility", "visible");
                 $("div.serverError").text(errorMessage);
-            }                
+            }
         },
 
         dragenter: function(event){
