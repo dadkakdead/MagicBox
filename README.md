@@ -72,9 +72,9 @@ The best place to host your **MagicBox** is PythonAnywhere. If you pay them [5$ 
 Step-by-step guide:
 1. After installation, open **MagicBox** in your browser
 2. Click "Manage scripts" to open administrator panel
-3. From the administrator panel, click "Add script"
+3. From the administrator panel, click "Add report"
 4. Fill the form, save it
-5. On the server side, edit the *~/MagicBox/webrequest/scripts/<script_key>_script.py*
+5. On the server side, edit the *~/MagicBox/webrequest/scripts/<report_key>_script.py*
 6. Reload the web application at PythonAnywhere
 
 Video tutorial: [5 minutes long video, available on Youtube]
