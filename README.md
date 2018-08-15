@@ -38,7 +38,7 @@ The biggest advantage of Excel is the intuitive interface. People would manually
 
 ---
 
-## Developers corner ##
+## Developer's corner ##
 
 ### Installation/Deployment ###
 The best place to host your **MagicBox** is PythonAnywhere. If you pay them [5$ per month] for Jupyter notebook support, you can switch the whole script management (editing + publishing) to the cloud... and you will never want to go back.
